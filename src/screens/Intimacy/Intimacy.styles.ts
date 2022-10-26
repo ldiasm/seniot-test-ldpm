@@ -79,12 +79,11 @@ export const IntimacyMasterCardView = styled(View)`
   width: 100%;
   align-self: center;
   justify-content: center;
-  margin-horizontal: 40px;
-  margin-vertical: 32px;
 `;
 
 export const IntimacyMasterCardBackground = styled(ImageBackground)`
-  height: 500px;
+  height: 100%;
+  width: 100%;
 `;
 
 export const IntimacyMasterCardTitle = styled(Text)`

@@ -1,34 +1,6 @@
-import { useEffect } from 'react';
-import {
-  IntimacyMasterCardBackground,
-  IntimacyMasterCardImage,
-  IntimacyMasterCardSubtitle,
-  IntimacyMasterCardTitle,
-  IntimacyMasterCardView,
-} from '../../screens/Intimacy/Intimacy.styles';
+import React from 'react';
+import { Cards } from '../Swiper/Cards';
 
 export const MasterCard = () => {
-  useEffect(() => {
-    
-  });
-
-  function masterCardDetail() {
-    return console.warn('Me tocou :D');
-  }
-
-  return (
-    <IntimacyMasterCardView onTouchEnd={() => masterCardDetail()}>
-      <IntimacyMasterCardBackground
-        source={require('../../assets/images/bgMasterCard.png')}
-      >
-        <IntimacyMasterCardTitle>{`#11`}</IntimacyMasterCardTitle>
-        <IntimacyMasterCardSubtitle>
-          {`Kinky Spider`}
-        </IntimacyMasterCardSubtitle>
-        <IntimacyMasterCardImage
-          source={require('../../assets/images/kinkySpider.png')}
-        ></IntimacyMasterCardImage>
-      </IntimacyMasterCardBackground>
-    </IntimacyMasterCardView>
-  );
+  return <Cards />;
 };
