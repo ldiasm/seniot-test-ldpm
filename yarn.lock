@@ -1686,12 +1686,10 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
-"@react-native-community/slider@^4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.3.2.tgz#85d027bfa04e23e197d1642c154311264d29f610"
-  integrity sha512-pKIx+l3yFQAVMcqGsnRcJAqZbVeR69CRbW85nZHhLuR/mOT0NbKWJIAEy7MC+e84DMTw0RJnEflRQO2/j8wcxQ==
-  dependencies:
-    "@types/react-test-renderer" "^18.0.0"
+"@react-native-community/slider@4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-4.2.3.tgz#7ed4f00ca2c50c666c47a59205b3df031d2588eb"
+  integrity sha512-qPkrAy883tSPoRWgGZjqL5tYnd4AmNLYNtjvtD9G6JMYtImxK4ITa/W8zOEgR8UOrPde/t+VN0MMxL63HZZK1Q==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
@@ -1791,13 +1789,6 @@
   version "0.69.15"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.69.15.tgz#67d27777c3e9a117e11cb1a539865d5e0504d950"
   integrity sha512-IYruD0E50stGMy2NtB2c6C/45TPtP+9dz4rJfSLrVEiIl25aN3QLVJMS5UIPaAMNZVwXJlu0LKAirYYX6FNPDQ==
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-test-renderer@^18.0.0":
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-18.0.0.tgz#7b7f69ca98821ea5501b21ba24ea7b6139da2243"
-  integrity sha512-C7/5FBJ3g3sqUahguGi03O79b8afNeSD6T8/GU50oQrJCU0bVCCGQHaGKUbg2Ce8VQEEqTw8/HiS6lXHHdgkdQ==
   dependencies:
     "@types/react" "*"
 

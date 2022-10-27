@@ -1,62 +1,81 @@
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import Swiper from 'react-native-swiper';
+import { View, ScrollView } from 'react-native';
 import {
-  IntimacyHeader,
-  IntimacyTitle,
-  IntimacyView,
+  IntimacyCardDetailHeader,
+  IntimacyCardDetails,
+  IntimacyCardDetailsRowIcon,
+  IntimacyCardDetailsRows,
+  IntimacyCardDetailsRowText,
+  IntimacyCardDetailsRowText2,
+  IntimacyCardDetailsTable,
+  IntimacyCardsView,
 } from '../../screens/Intimacy/Intimacy.styles';
-import { cardsData } from '../../utils/CardsData';
+import { CardDataProps } from '../../utils/CardsData';
+import { SeeMore } from './SeeMore';
+import { SeparatorLine } from './SeparatorLine';
 
-export const CardDetail = () => {
-  const cardsArray = cardsData;
-  return (
-    <Swiper showsButtons>
-      {cardsArray.map((item, key) => {
-        return (
-          <View key={key}>
-            <Text style={styles.text}>{item.cardNumber}</Text>
-            <Text style={styles.text}>{item.title}</Text>
-          </View>
-        );
-      })}
-    </Swiper>
-    // <Swiper style={styles.wrapper} showsButtons={true}>
-    //   <View style={styles.slide1}>
-    //     <Text style={styles.text}>Hello Swiper</Text>
-    //   </View>
-    //   <View style={styles.slide2}>
-    //     <Text style={styles.text}>Beautiful</Text>
-    //   </View>
-    //   <View style={styles.slide3}>
-    //     <Text style={styles.text}>And simple</Text>
-    //   </View>
-    // </Swiper>
-  );
+type CardDetail = {
+  card: CardDataProps;
 };
 
-const styles = StyleSheet.create({
-  wrapper: {},
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
-  },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
-  },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-});
+export const CardDetail = ({ card }: CardDetail) => {
+  return (
+    <IntimacyCardsView>
+      <IntimacyCardDetailHeader>{`#${card.cardNumber}  |  ${card.title}`}</IntimacyCardDetailHeader>
+      <ScrollView>
+        <IntimacyCardDetails>
+          {`${card.description}`}
+          {card.description.length >= 149 ? <SeeMore card={card} /> : <></>}
+        </IntimacyCardDetails>
+        <IntimacyCardDetailsTable>
+          <IntimacyCardDetailsRows>
+            <IntimacyCardDetailsRowText>
+              <IntimacyCardDetailsRowIcon
+                source={require('../../assets/images/fireIcon.png')}
+              />
+              {`Difficulty: `}
+              <IntimacyCardDetailsRowText2>{`${card.difficult}`}</IntimacyCardDetailsRowText2>
+            </IntimacyCardDetailsRowText>
+          </IntimacyCardDetailsRows>
+          <SeparatorLine />
+          <IntimacyCardDetailsRows>
+            <IntimacyCardDetailsRowText>
+              <IntimacyCardDetailsRowIcon
+                source={require('../../assets/images/diamondIcon.png')}
+              />
+              {`Stimulation: `}
+              <IntimacyCardDetailsRowText2>{`${card.stimulation}`}</IntimacyCardDetailsRowText2>
+            </IntimacyCardDetailsRowText>
+          </IntimacyCardDetailsRows>
+          <SeparatorLine />
+          <IntimacyCardDetailsRows>
+            <IntimacyCardDetailsRowText>
+              <IntimacyCardDetailsRowIcon
+                source={require('../../assets/images/catIcon.png')}
+              />
+              {`Position Type: `}
+              <IntimacyCardDetailsRowText2>{`${card.positionType}`}</IntimacyCardDetailsRowText2>
+            </IntimacyCardDetailsRowText>
+          </IntimacyCardDetailsRows>
+          <SeparatorLine />
+          <IntimacyCardDetailsRows>
+            <IntimacyCardDetailsRowText>
+              <IntimacyCardDetailsRowIcon
+                source={require('../../assets/images/bananaIcon.png')}
+              />
+              {`Penetration: `}
+              <IntimacyCardDetailsRowText2>{`${card.penetration}`}</IntimacyCardDetailsRowText2>
+            </IntimacyCardDetailsRowText>
+          </IntimacyCardDetailsRows>
+          <SeparatorLine />
+          <IntimacyCardDetailsRows>
+            <IntimacyCardDetailsRowText>
+              <View style={{ width: 28 }} />
+              {`Accessories: `}
+              <IntimacyCardDetailsRowText2>{`${card.accessories}`}</IntimacyCardDetailsRowText2>
+            </IntimacyCardDetailsRowText>
+          </IntimacyCardDetailsRows>
+        </IntimacyCardDetailsTable>
+      </ScrollView>
+    </IntimacyCardsView>
+  );
+};

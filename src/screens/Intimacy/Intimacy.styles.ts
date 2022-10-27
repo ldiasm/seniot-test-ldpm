@@ -1,4 +1,4 @@
-import { View, Text, Dimensions, ImageBackground } from 'react-native';
+import { View, Text, Dimensions, ImageBackground, Image } from 'react-native';
 import styled from 'styled-components';
 import Constants from 'expo-constants';
 
@@ -126,4 +126,64 @@ export const IntimacyFooterText = styled(Text)`
   font-weight: 500;
   line-height: 24px;
   text-align: center;
+`;
+
+export const IntimacyCardsView = styled(View)`
+  flex: 1;
+  height: 500px;
+  width: 295px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  padding-horizontal: 16px;
+  justify-content: flex-start;
+  align-self: center;
+`;
+
+export const IntimacyCardDetailHeader = styled(Text)`
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+  padding-horizontal: 4px;
+  padding-top: 24px;
+  color: #fff;
+`;
+
+export const IntimacyCardDetails = styled(Text)`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  color: 'rgba(255, 255, 255,0.6)';
+  padding-horizontal: 4px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+`;
+
+export const IntimacyCardDetailsTable = styled(View)`
+  flex-direction: column;
+  padding-bottom: 32px;
+`;
+
+export const IntimacyCardDetailsRows = styled(View)`
+  flex-direction: column;
+  height: 32px;
+  width: 100%;
+`;
+
+export const IntimacyCardDetailsRowIcon = styled(Image)``;
+
+export const IntimacyCardDetailsRowText = styled(Text)`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #fff;
+`;
+
+export const IntimacyCardDetailsRowText2 = styled(Text)`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #fff;
 `;

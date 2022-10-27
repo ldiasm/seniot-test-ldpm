@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Swiper from 'react-native-swiper';
 import {
   IntimacyMasterCardBackground,
   IntimacyMasterCardImage,
@@ -6,6 +7,7 @@ import {
   IntimacyMasterCardTitle,
   IntimacyMasterCardView,
 } from '../../screens/Intimacy/Intimacy.styles';
+import { cardsData } from '../../utils/CardsData';
 import { CardDetail } from '../Intimacy/CardDetail';
 
 interface CardControlProps {
@@ -20,35 +22,39 @@ let masterCard: CardControlProps = {
 
 export const Cards = () => {
   const [flipCard, setflipCard] = useState(masterCard.flipCard);
-  const [seeMore, setSeeMore] = useState(masterCard.flipCard);
+  const cards = cardsData;
 
   function masterCardDetail() {
     setflipCard((masterCard.flipCard = !masterCard.flipCard));
   }
-  function masterCardDetailExtended() {
-    setflipCard((masterCard.seeMore = !masterCard.seeMore));
-  }
+
   return (
-    <IntimacyMasterCardView onTouchEnd={() => masterCardDetail()}>
-      {!flipCard ? (
-        <IntimacyMasterCardBackground
-          source={require('../../assets/images/bgMasterCard.png')}
-        >
-          <IntimacyMasterCardTitle>{`#11`}</IntimacyMasterCardTitle>
-          <IntimacyMasterCardSubtitle>
-            {`Kinky Spider`}
-          </IntimacyMasterCardSubtitle>
-          <IntimacyMasterCardImage
-            source={require('../../assets/images/kinkySpider.png')}
-          ></IntimacyMasterCardImage>
-        </IntimacyMasterCardBackground>
-      ) : (
-        <IntimacyMasterCardBackground
-          source={require('../../assets/images/bgMasterCard.png')}
-        >
-          <CardDetail />
-        </IntimacyMasterCardBackground>
-      )}
-    </IntimacyMasterCardView>
+    <Swiper loop={false} showsPagination={false}>
+      {cards?.map((card) => (
+        <IntimacyMasterCardView key={card.id}>
+          {!flipCard ? (
+            <IntimacyMasterCardBackground
+              source={require('../../assets/images/bgMasterCard.png')}
+            >
+              <IntimacyMasterCardTitle
+                onPress={() => masterCardDetail()}
+              >{`#${card.cardNumber}`}</IntimacyMasterCardTitle>
+              <IntimacyMasterCardSubtitle onPress={() => masterCardDetail()}>
+                {`${card.title}`}
+              </IntimacyMasterCardSubtitle>
+              <IntimacyMasterCardImage
+                source={card.image}
+              ></IntimacyMasterCardImage>
+            </IntimacyMasterCardBackground>
+          ) : (
+            <IntimacyMasterCardBackground
+              source={require('../../assets/images/bgMasterCard.png')}
+            >
+              <CardDetail card={card} />
+            </IntimacyMasterCardBackground>
+          )}
+        </IntimacyMasterCardView>
+      ))}
+    </Swiper>
   );
 };
